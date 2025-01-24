@@ -16,7 +16,24 @@ class Navbar extends StatelessWidget {
 
         // button
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  backgroundColor: Colors.amber,
+                  title: Center(
+                    child: Text(
+                      "Ini tombol cek stunting",
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            );
+          },
           style: ElevatedButton.styleFrom(
             elevation: 0,
             backgroundColor: Color(0xff3BB557),

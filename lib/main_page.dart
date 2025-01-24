@@ -1,3 +1,5 @@
+import 'package:apps_stunting_mobile/pages/blog_page.dart';
+import 'package:apps_stunting_mobile/pages/data_balita_page.dart';
 import 'package:apps_stunting_mobile/pages/home_page.dart';
 import 'package:apps_stunting_mobile/util/navbar_bottom.dart';
 import 'package:flutter/material.dart';
@@ -23,12 +25,8 @@ class _MainPageState extends State<MainPage> {
 
   List<Widget> pages = [
     HomePage(),
-    Center(
-      child: Text("Data Balita"),
-    ),
-    Center(
-      child: Text("Blog"),
-    ),
+    DataBalitaPage(),
+    BlogPage(),
   ];
 
   @override
@@ -73,7 +71,7 @@ class _MainPageState extends State<MainPage> {
                 vertical: 20,
               ),
               child: Opacity(
-                opacity: _isScrolled ? 0.9 : 1,
+                opacity: _isScrolled ? 1 : 1,
                 child: Container(
                   height: 70,
                   decoration: BoxDecoration(
