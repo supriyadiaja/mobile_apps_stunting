@@ -48,11 +48,11 @@ class _HomePageState extends State<HomePage> {
           children: [
             // banner carousel
             BannerCarousel(),
-                
+
             SizedBox(
               height: 20,
             ),
-                
+
             // bahaya stunting ----------------->
             Container(
               decoration: BoxDecoration(
@@ -91,11 +91,11 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ),
-                
+
                     SizedBox(
                       height: 30,
                     ),
-                
+
                     // gangguan ------------->
                     CardText(
                       color: Color(0xffFCF4DD),
@@ -125,7 +125,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-                
+
             // Cegah stunting dari kita ------------->
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
@@ -190,12 +190,12 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
             ),
-                
+
             // Bagaiana cegah stunting? ------------->
             SizedBox(
               height: 20,
             ),
-                
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 13),
               child: Column(
@@ -212,11 +212,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
-                  
+
                   SizedBox(
                     height: 10,
                   ),
-                  
+
                   // 4 icons sejajar ------------->
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
