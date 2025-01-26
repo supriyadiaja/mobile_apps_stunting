@@ -1,3 +1,4 @@
+import 'package:apps_stunting_mobile/pages/cek_stunting_page.dart';
 import 'package:flutter/material.dart';
 
 class Navbar extends StatelessWidget {
@@ -16,24 +17,12 @@ class Navbar extends StatelessWidget {
 
         // button
         ElevatedButton(
-          onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  backgroundColor: Colors.amber,
-                  title: Center(
-                    child: Text(
-                      "Ini tombol cek stunting",
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
-                    ),
-                  ),
-                );
-              },
-            );
-          },
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => CekStuntingPage(),
+            ),
+          ),
           style: ElevatedButton.styleFrom(
             elevation: 0,
             backgroundColor: Color(0xff3BB557),

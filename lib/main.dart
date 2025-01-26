@@ -1,3 +1,4 @@
+import 'package:apps_stunting_mobile/auth/login_user.dart';
 import 'package:apps_stunting_mobile/main_page.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.grey),
-      home: MainPage(),
+      home: LoginUser(),
     );
   }
 }

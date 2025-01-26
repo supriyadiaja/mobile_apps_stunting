@@ -1,8 +1,9 @@
-import 'package:apps_stunting_mobile/util/navbar.dart';
+import 'package:apps_stunting_mobile/util/navbar_stunting.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class DataBalitaPage extends StatefulWidget {
-  DataBalitaPage({
+  const DataBalitaPage({
     super.key,
   });
 
@@ -11,23 +12,27 @@ class DataBalitaPage extends StatefulWidget {
 }
 
 class _DataBalitaPageState extends State<DataBalitaPage> {
-  final String name = "Silvia";
+  String? _selectedItem;
+  bool _isScrolled = false;
 
   final List<String> _dropdownItems = [
     'Harian',
     'Mingguan',
     'Bulanan',
   ];
-  String? _selectedItem;
 
-  bool _isScrolled = false;
+  // funtion get image for user
+  Future<void> pickImage() async {
+    await ImagePicker().pickImage(source: ImageSource.gallery);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Color(0xffF7FAFB),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         flexibleSpace: Container(
@@ -65,44 +70,54 @@ class _DataBalitaPageState extends State<DataBalitaPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Stack(
-                    alignment: Alignment.center,
+                    alignment: Alignment.bottomRight,
                     children: [
                       CircleAvatar(
                         radius: 53,
                         backgroundColor: Colors.green[600],
                         child: CircleAvatar(
                           radius: 50,
-                          backgroundImage:
-                              NetworkImage('https://i.pravatar.cc/500?u=$name'),
+                          backgroundImage: NetworkImage(
+                              'https://i.pravatar.cc/500?u=Silvia'),
                         ),
                       ),
                       Positioned(
                         bottom: 0,
-                        right: 4,
-                        child: TextButton(
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  backgroundColor: Colors.amber,
-                                  title: Text("Ini tombol edit foto"),
-                                );
-                              },
-                            );
-                          },
-                          style: TextButton.styleFrom(
-                            minimumSize: Size(10, 35),
-                            padding: EdgeInsets.all(5),
-                            backgroundColor: Colors.lightBlueAccent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                          ),
-                          child: Icon(
-                            Icons.edit_note_sharp,
-                            size: 18,
-                            color: Colors.white,
+                        right: 0,
+                        child: SizedBox(
+                          width: 33,
+                          child: Wrap(
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return AlertDialog(
+                                        backgroundColor: Colors.amber,
+                                        title: Center(
+                                          child: Text(
+                                            "Ini tombol ganti foto",
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.all(5),
+                                  backgroundColor: Colors.green[600],
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(50),
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.add_a_photo_outlined,
+                                  size: 18,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -276,6 +291,14 @@ class _DataBalitaPageState extends State<DataBalitaPage> {
               child: Container(
                 height: 250,
                 color: Colors.amber[100],
+                child: Center(
+                  child: Text(
+                    'Grafik Pertumbuhan Usia',
+                    style: TextStyle(
+                      fontSize: 22,
+                    ),
+                  ),
+                ),
               ),
             ),
 
@@ -288,6 +311,14 @@ class _DataBalitaPageState extends State<DataBalitaPage> {
               child: Container(
                 height: 250,
                 color: Colors.blue[200],
+                child: Center(
+                  child: Text(
+                    'Grafik Pertumbuhan BB',
+                    style: TextStyle(
+                      fontSize: 22,
+                    ),
+                  ),
+                ),
               ),
             ),
 
@@ -300,6 +331,14 @@ class _DataBalitaPageState extends State<DataBalitaPage> {
               child: Container(
                 height: 250,
                 color: Colors.green[100],
+                child: Center(
+                  child: Text(
+                    'Grafik Pertumbuhan TB',
+                    style: TextStyle(
+                      fontSize: 22,
+                    ),
+                  ),
+                ),
               ),
             ),
 

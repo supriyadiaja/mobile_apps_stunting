@@ -6,60 +6,84 @@ class CardBlog extends StatelessWidget {
     required this.image,
     required this.title,
     required this.dateTime,
+    this.icon,
   });
 
   final String image;
   final String title;
   final String dateTime;
+  final IconData? icon;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 150,
-      child: Card(
-        elevation: 4,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(13),
-                  topRight: Radius.circular(13),
-                ),
-                image: DecorationImage(
-                    image: NetworkImage(image), fit: BoxFit.cover),
-              ),
+    return Padding(
+      padding: const EdgeInsets.only(right: 3),
+      child: SizedBox(
+        width: 160,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 10),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(13),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 9),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Text(
-                      title,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 15,
+            elevation: 4,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(13),
+                      ),
+                      child: Image.network(
+                        image,
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: 100,
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    dateTime.toString(),
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 10,
+                    Positioned(
+                      child: Icon(
+                        icon,
+                        color: Colors.white,
+                        size: 50,
+                      ),
                     ),
+                  ],
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      Text(
+                        dateTime,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 10,
+                            color: Colors.grey),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

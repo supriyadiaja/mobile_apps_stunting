@@ -1,12 +1,11 @@
 import 'package:apps_stunting_mobile/util/banner_carousel.dart';
 import 'package:apps_stunting_mobile/util/card_icon.dart';
 import 'package:apps_stunting_mobile/util/card_text.dart';
-import 'package:apps_stunting_mobile/util/navbar.dart';
+import 'package:apps_stunting_mobile/util/navbar_stunting.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  // ignore: prefer_const_constructors_in_immutables
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -19,8 +18,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Color(0xffF7FAFB),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         flexibleSpace: Container(
